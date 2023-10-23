@@ -1,0 +1,120 @@
+.services {
+    background-color: #F0EFE9;
+    position: relative;
+    
+    .container {
+        display: block;
+        
+        .section-title {
+            padding-bottom: 48px;
+            p {
+                text-align: center; 
+                
+                @media (min-width:992px) {
+                    text-align: left; 
+                } 
+            }
+    
+            h2 {
+                text-align: center;
+                padding: 0; 
+                
+                @media (min-width:992px) {
+                    text-align: left;
+                    display: grid;
+                    grid-template-columns: 1.5fr 1fr 1fr;  
+                } 
+            }
+        }
+       
+        
+        .services-boxes{
+            display: grid;
+            grid-template-columns: 1fr;
+            padding-bottom: 50px;
+            gap: 40px;
+            
+            @media (min-width:768px){
+                grid-template-columns: 1fr 1fr;   
+            }
+            
+            @media (min-width:1200px){
+                grid-template-columns: 1fr 1fr 1fr 1fr;
+           }
+            
+            .box-content{
+                display: flex;
+                flex-direction: column;
+                text-align: center;
+                text-decoration: none;
+                color: #191919; 
+                
+                @media (min-width:992px){
+                    display: block;
+                }
+
+                h4{
+                    padding-top: 20px;
+                }
+                padding: 20px 30px 40px 25px;
+                background-color: #ffffff;
+                .left-content {
+                    text-align: center;
+                    
+                    @media (min-width:992px){
+                        text-align: left; 
+                    }
+                    
+                    i{
+                        font-size: 40px;
+                        padding-top: 20px;
+                    } 
+                }
+            
+                .right-content {
+                    text-align: center;
+                    
+                    @media (min-width:992px) {
+                        text-align: right; 
+                    }
+                    
+                    i{
+                        font-size: 56px;
+                        background-color: transparent;
+                        color: #191919;
+                        
+                    }
+                }
+                
+                @extend %hover-effect;
+                
+                &:hover  {
+                    background-color: #F9D783;
+                }
+                cursor: pointer;  
+            }
+            
+            
+        }
+
+        .button {
+            display: flex;
+            justify-content: center;
+            text-align: center; 
+            a {flex: 1;}
+                        
+            @media (min-width:992px){
+                display: block;
+                align-items: center;   
+            }
+        }
+    }
+
+    .decoration {
+        right: 0; 
+      
+        @media (min-width:768px) {
+            display: flex; 
+        }
+    }
+}
