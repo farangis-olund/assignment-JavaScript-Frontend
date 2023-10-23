@@ -27,9 +27,12 @@ html, body {
 .wrapper {
     display: flex;
     flex-direction: column;
-    height: 100dvh;
+    height: 100vh;
 }
 
+main {
+flex: 1;
+}
 .section-padding {
     padding: 60px 15px;
       

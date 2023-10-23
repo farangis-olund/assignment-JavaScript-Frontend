@@ -4,9 +4,9 @@ import SocialMedia from './generics/SocialMedia'
 
 const BottomFooter = () => {
   return (
-    <div class="bottom-footer">
+    <div className="bottom-footer">
        
-        <div class="container">
+        <div className="container">
             <p>© 2023 Crito - Consulting Company Inc. All Rights Reserved.</p>
             <SocialMedia />
         </div> 

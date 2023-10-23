@@ -5,15 +5,15 @@ import imgDecorationLinesRight from '../assets/images/background-lines-white-rig
 
 const Footer = () => {
   return (
-    <footer class="footer">
-        <div class="container section-padding">
-            <div class="logo">
+    <footer className="footer">
+        <div className="container section-padding">
+            <div className="logo">
                 <Link to="/"><img src={imgLogotype} alt="logo"/></Link>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat obcaecati voluptas voluptates! Voluptates laborum nam ratione minus necessitatibus, iure praesentium.</p>
             </div>
             
-            <div class="content">
-                <div class="box">
+            <div className="content">
+                <div className="box">
                     <h4>Company</h4>
                     <Link to="#">About</Link>
                     <Link to="#">Futures</Link>
@@ -21,7 +21,7 @@ const Footer = () => {
                     <Link to="#">Careers</Link>
                 </div>
 
-                <div class="box">
+                <div className="box">
                     <h4>Help</h4>
                     <Link to="#">Customer Support</Link>
                     <Link to="#">Delivery Details</Link>
@@ -29,7 +29,7 @@ const Footer = () => {
                     <Link to="#">Privacy Policy</Link>
                 </div>
 
-                <div class="box">
+                <div className="box">
                     <h4>Resources</h4>
                     <Link to="#">Free eBooks</Link>
                     <Link to="#">Development Tutorial</Link>
@@ -37,7 +37,7 @@ const Footer = () => {
                     <Link to="#">Youtube Playlist</Link>
                 </div>
                     
-                <div class="box">
+                <div className="box">
                     <h4>Links</h4>
                     <Link to="#">Free eBooks</Link>
                     <Link to="#">Development Tutorial</Link>
@@ -48,7 +48,7 @@ const Footer = () => {
         
         </div>
         
-        <img class="decoration" src={imgDecorationLinesRight} alt="decor-img"/>
+        <img className="decoration" src={imgDecorationLinesRight} alt="decor-img"/>
     </footer>
 
    

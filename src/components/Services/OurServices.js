@@ -1,8 +1,8 @@
 import React from 'react'
 import ServiceBox from './ServiceBox'
-import SectionTiltle from './generics/SectionTiltle'
-import Button from './generics/Button'
-import imgDecorationLinesRight from '../assets/images/background-lines-right.svg'
+import SectionTiltle from '../generics/SectionTiltle'
+import Button from '../generics/Button'
+import imgDecorationLinesRight from '../../assets/images/background-lines-right.svg'
 const OurServices = () => {
   
   const services =[

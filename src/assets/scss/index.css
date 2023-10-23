@@ -25,7 +25,11 @@ html p, body p {
 .wrapper {
   display: flex;
   flex-direction: column;
-  height: 100dvh;
+  height: 100vh;
+}
+
+main {
+  flex: 1;
 }
 
 .section-padding {
@@ -69,7 +73,7 @@ html p, body p {
   }
 }
 
-.services .container .services-boxes .box-content:hover {
+.article-news .container .boxes .box:hover, .services .container .services-boxes .box-content:hover {
   transform: scale(1.05);
   transition: background-color 0.3s ease, transform 0.3s ease;
 }
@@ -350,6 +354,176 @@ header .container .menu .main-menu nav a.active::after, header .container .menu 
 header .container .menu .main-menu .login-btn {
   padding-top: 8px;
   padding-bottom: 8px;
+}
+
+.article-news .container {
+  display: block;
+  text-align: center;
+}
+@media (min-width: 992px) {
+  .article-news .container {
+    text-align: left;
+  }
+}
+.article-news .container .title {
+  display: block;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 30px;
+}
+@media (min-width: 992px) {
+  .article-news .container .title {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    text-align: left;
+  }
+}
+.article-news .container .title .section-title h2 {
+  padding-bottom: 48px;
+}
+@media (min-width: 992px) {
+  .article-news .container .title .section-title h2 {
+    padding: 0;
+    margin: 0;
+  }
+}
+.article-news .container .title .browse-article {
+  margin-bottom: 15px;
+}
+.article-news .container .boxes {
+  display: block;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding-top: 43px;
+}
+@media (min-width: 992px) {
+  .article-news .container .boxes {
+    display: flex;
+    justify-content: space-between;
+    align-items: left;
+    text-align: left;
+    gap: 30px;
+  }
+}
+.article-news .container .boxes .box {
+  display: block;
+  text-decoration: none;
+  color: #191919;
+  padding-bottom: 30px;
+}
+.article-news .container .boxes .box .img-content {
+  position: relative;
+  display: block;
+}
+@media (min-width: 992px) {
+  .article-news .container .boxes .box .img-content {
+    display: flex;
+    align-items: left;
+  }
+}
+.article-news .container .boxes .box .img-content img {
+  width: 100%;
+  height: auto;
+}
+.article-news .container .boxes .box .img-content .calendar {
+  position: absolute;
+  width: 56px;
+  height: 64px;
+  background-color: #F9D783;
+  left: 8%;
+  top: 16px;
+  padding: 10px 11px 8px 14px;
+}
+@media (min-width: 992px) {
+  .article-news .container .boxes .box .img-content .calendar {
+    left: 5%;
+  }
+}
+.article-news .container .boxes .box .img-content .calendar span {
+  font-family: "DM Sans", sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+}
+.article-news .container .boxes .box .subtitle {
+  padding-top: 15px;
+}
+@media (min-width: 992px) {
+  .article-news .container .boxes .box .subtitle {
+    padding-top: 28px;
+  }
+}
+.article-news .container .dots {
+  padding-top: 60px;
+  text-align: center;
+  font-size: 12px;
+}
+.article-news .container .dots a {
+  color: #6e6a6a;
+}
+.article-news .container .dots .active {
+  color: #191919;
+}
+.article-news .container .dots a :hover {
+  color: #191919;
+}
+
+.get-update {
+  background-color: #F0EFE9;
+  position: relative;
+}
+.get-update .container {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding-top: 107px;
+  padding-bottom: 107px;
+}
+@media (min-width: 1200px) {
+  .get-update .container {
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+  }
+}
+@media (min-width: 992px) {
+  .get-update .container .section-title h2 {
+    padding: 0;
+  }
+}
+.get-update .container .content-center {
+  text-align: center;
+  gap: 25px;
+}
+.get-update .container .content-center .btn-yellow {
+  padding: 17px 30px;
+}
+.get-update .container .content-center input {
+  border-radius: 35px;
+  border: none;
+  text-align: center;
+  padding: 15px 30px;
+  margin-right: 0;
+}
+@media (min-width: 1200px) {
+  .get-update .container .content-center input {
+    width: 308px;
+    text-align: left;
+  }
+}
+.get-update .container .content-center input:hover {
+  background-color: #efefef;
+}
+.get-update .decoration {
+  right: 0;
+  padding-bottom: 10px;
+}
+@media (min-width: 1400px) {
+  .get-update .decoration {
+    padding-bottom: 58px;
+  }
 }
 
 .footer {
