@@ -1,0 +1,91 @@
+.team-section {
+    background-color: #EDCF87;
+     .container {
+        .title {
+            display: block;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            gap: 30px;
+            
+            @media (min-width:768px) {
+                 display: grid;
+                 grid-template-columns: 1fr 1fr;
+                 text-align: left;
+            }
+ 
+            @media (min-width:992px) {
+             display: flex;
+             justify-content: space-between;
+             align-items: flex-end;
+             }
+             
+            .section-title {
+                 h2 {
+                     padding-bottom: 40px;
+                     
+                     @media (min-width:992px) {
+                         padding: 0;
+                         margin: 0;
+                     }
+                 }
+             }
+ 
+             .content-center {
+                 display: flex;
+                 flex-direction: column;
+ 
+                 .btn-yellow {
+                     border: 1px solid #191919;
+                 }
+             }
+         }
+         .team-members {
+             display: flex;
+             flex-direction: column;
+             justify-content: center;
+             align-items: center;
+             text-align: center;
+             gap: 10px;
+             padding-top: 20px;
+             
+             @media (min-width:768px) {
+                 display: grid;
+                 grid-template-columns: 1fr 1fr;
+                 gap: 30px;
+                 padding-top: 90px;    
+             }
+ 
+             @media (min-width:1200px) {
+                 grid-template-columns: 1fr 1fr 1fr 1fr;
+                 text-align: left;
+             }
+             
+             .member {
+                 text-decoration: none;
+                 color: #191919;
+                
+                 
+                 img {
+                     max-width:100%;
+                     height: auto;   
+                 }
+                 
+                 h4 {
+                     padding-top: 28px;
+                 }
+                 
+                 p {
+                     margin-top: -5px;
+                     color:#6e6a6a
+                 }
+                 
+                 @extend %hover-effect;
+             }
+ 
+         }
+        
+     }
+ 
+ }
+ 

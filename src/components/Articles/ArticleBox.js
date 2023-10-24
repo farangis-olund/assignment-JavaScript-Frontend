@@ -2,13 +2,13 @@ import React from 'react'
 
 const ArticleBox = ({imgSrc, imgAlt, date, month, title, description}) => {
   return (
-    <a class="box" href="#">
-        <div class="img-content">
+    <a className="box" href="/articles">
+        <div className="img-content">
             <img src={imgSrc} alt={imgAlt}/>
-            <div class="calendar"><span>{date}</span> {month}</div>
+            <div className="calendar"><span>{date}</span> {month}</div>
         </div>
         
-        <p class="subtitle">Business</p>    
+        <p className="subtitle">Business</p>    
         <h4>{title}</h4>
         <p>{description}</p>
     </a>

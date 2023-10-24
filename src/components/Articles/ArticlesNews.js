@@ -14,16 +14,16 @@ const ArticlesNews = () => {
         ]
   
 return (
-    <div class="article-news">
-        <div class="container section-padding">
-            <div class="title">
+    <div className="article-news">
+        <div className="container section-padding">
+            <div className="title">
                 <SectionTiltle title="Article & News" description="Get Every Single Articles & News" />
-                <div class="content-center">
+                <div className="content-center">
                     <Button url="/services" title="Browse Article" />
                 </div>
             </div>
             
-            <div class="boxes">
+            <div className="boxes">
                 {
                    articles.map((article, index)=>(
                         <ArticleBox key={index} 
