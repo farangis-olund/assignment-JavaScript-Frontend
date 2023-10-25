@@ -15,11 +15,11 @@ const ProjectCaseSection = () => {
     {imgSrc: case4, imgAlt: "computer with business Inteligence in the screen", title: "Business Insights is a important piece of your business"}
   ]
     return (
-    <div class="project-case">
-       <div class="container section-padding">
+    <div className="project-case">
+       <div className="container section-padding">
             <SectionTiltle title="Project & Case studies" description="Let's Looks Our Global Projects" />
             
-            <div class="cases">
+            <div className="cases">
                 {
                     cases.map (( projectCase, index) => (
                         <ProjectCaseBoxs key={index} 
@@ -29,7 +29,7 @@ const ProjectCaseSection = () => {
                     ))
                 }
             </div>
-            <div class="content-center">
+            <div className="content-center">
                 <Button type="black" title="All Recent Projects" url="/services" />
             </div>
         </div>

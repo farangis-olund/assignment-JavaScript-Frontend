@@ -28,7 +28,7 @@ const Home = () => {
         <ProjectCaseSection/>  
         <TeamSection />
         <TestimonaialSection/>
-        <ArticlesNews />
+        <ArticlesNews sectionDescription="Get Every Single Articles & News" articleAmount={3}/>
         <GetUpdate />
       </main>
       <Footer/>

@@ -44,8 +44,8 @@
             padding-top: 43px;
             
             @media (min-width:992px) {
-                display: flex;
-                justify-content: space-between;
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr;
                 align-items: left;
                 text-align: left;
                 gap: 30px;

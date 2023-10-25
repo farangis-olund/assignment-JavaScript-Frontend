@@ -12,7 +12,7 @@ const Contacts = () => {
     <div className='wrapper'>
       <Header/>
       <main>
-        <SubManuBar url="/Contacts" page="Contacts" />
+        <SubManuBar url="/Contacts" page="Contacts" title="Let's Connect" />
         <ContactDetails/>
         <ContactForm/>
       </main>

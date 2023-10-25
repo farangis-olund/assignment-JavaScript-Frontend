@@ -1063,8 +1063,8 @@ header .container .menu .main-menu .login-btn {
 }
 @media (min-width: 992px) {
   .article-news .container .boxes {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
     align-items: left;
     text-align: left;
     gap: 30px;
