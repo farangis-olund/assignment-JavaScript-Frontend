@@ -1,0 +1,173 @@
+.showcase-contacts {
+    padding-bottom: 80px;
+    padding-top: 60px;
+    
+    .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        
+        .nav-contact {
+            display: flex;
+            
+            a {
+                padding-right: 10px;
+                text-decoration: none;
+                color: #6e6a6a;
+                z-index: 2;
+                
+                &:hover {
+                    color: #191919;
+                    font-weight: bold;
+                }
+            }
+        }
+        
+        
+    }
+}
+
+.contact-detail {
+    
+    .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        
+        @media (min-width:992px) {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 0;
+        }
+
+        .box {
+            display: flex;
+            border: 1px solid #DBDAD5;
+            padding: 20px;
+           
+            @media (min-width:992px) {
+                padding: 50px 30px 40px 20px;
+            }
+
+            @media (min-width:1200px) {
+                padding: 50px 60px 40px 40px;
+            }
+
+            @media (min-width:1400px) {
+                padding: 50px 120px 40px 60px;
+            }
+            
+            i {
+                font-size: 55px;
+                padding-right: 15px;    
+            }
+            
+            .content {
+                display: flex;
+                flex-direction: column;
+                align-items: left;
+                
+                p {
+                    margin-bottom: 1px;
+                }
+            }
+        }
+    }
+}
+
+.contacts {
+    padding-bottom: 80px; 
+    
+    .container {
+       background-color: #F0EFE9;
+       text-align: center;
+        
+        @media (max-width:768px) {
+            padding: 15px;
+        }
+       
+        h2 {
+        padding-bottom: 32px;
+        }
+        .contact-form {
+            
+            width: 900px; 
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-gap: 10px;
+            
+            .alert-success {
+                background-color: #66bb6a;
+                padding: 15px;
+                border-radius: 8px; 
+            }
+              
+            .alert-warning {
+                background-color: #ffcc00;
+                padding: 15px;
+                border-radius: 8px;  
+            }
+
+            .form-group {
+                display: grid;
+                grid-template-columns: 1fr;
+                grid-gap: 10px;
+        
+                input,
+                textarea {
+                    border-radius: 35px;
+                    border: none;
+                    text-align: left;
+                    padding: 15px 30px;
+                    placeholder: {
+                        color: #ccc;
+                    }
+                }
+
+                input,
+                textarea:focus {
+                    outline: none;
+                }
+                .error-input {
+                    color: #df4747;
+                    border: 1px solid #df4747;
+                    background-color: #fff5f5;
+                }
+                .error {
+                    color: #df4747;
+                }
+                 span {
+                    font-size: 0.8em;
+                    color: #df4747;
+                    text-align: left;
+                    padding-left: 20px;
+                 }   
+            }
+            
+            @media (max-width:768px) {
+              
+                max-width: 100%;
+                padding: 10px; 
+                
+                input,
+                textarea {
+                    padding: 10px;
+                }
+            
+                
+            }
+        
+        }
+        
+        #btn-submit {
+            padding-top: 44px;
+        }
+    }
+   
+}

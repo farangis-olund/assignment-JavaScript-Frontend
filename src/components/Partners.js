@@ -19,7 +19,7 @@ const Partners = () => {
         <div className="container section-padding">
             {
                 partners.map((partner, index)=>(
-                    <img src={partner.imgSrc} alt={partner.imgAlt}/>
+                    <img key={index} src={partner.imgSrc} alt={partner.imgAlt}/>
             ))}
         </div>
     </div>

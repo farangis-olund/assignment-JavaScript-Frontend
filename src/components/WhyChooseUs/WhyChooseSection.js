@@ -13,15 +13,15 @@ const WhyChooseSection = () => {
         ]
       
     return (
-    <div class="why-choose-us">
-       <div class="container section-padding">
-            <div class="content">
+    <div className="why-choose-us">
+       <div className="container section-padding">
+            <div className="content">
                 <SectionTiltle title="Why choose u" description="Why We Are The Best Business Consulting Agency" />
                 
-                <div class="boxes">
+                <div className="boxes">
                     {
                        boxContent.map((box, index)=>(
-                        <WhyChooseBoxs key={index} fafaClass={box.fafaClass} title={box.title} description={box.description}/>
+                        <WhyChooseBoxs key={index} fafaclassName={box.fafaClass} title={box.title} description={box.description}/>
                     ))}
             </div>
             </div>
@@ -29,7 +29,7 @@ const WhyChooseSection = () => {
             <img src={img} alt="two women is talking"/>
         </div>
         
-        <div class="backround-box"></div>   
+        <div className="backround-box"></div>   
     </div>
   )
 }
