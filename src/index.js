@@ -18,7 +18,7 @@ root.render(
         <Route path='/' element={<Home/>} />  
         <Route path='/contacts' element={<Contacts/>} />  
         <Route path='/news' element={<News/>} />  
-        <Route path='/newsdetails' element={<NewsDetails/>} />  
+        <Route path='/newsdetails/:articleId' element={<NewsDetails/>} />  
         <Route path='*' element={<NotFound/>} />  
       </Routes>
     </BrowserRouter>

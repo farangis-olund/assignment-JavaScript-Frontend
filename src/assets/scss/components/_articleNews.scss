@@ -66,8 +66,12 @@
                     }   
                    
                     img {
-                        width: 100%;
-                        height: auto;
+                        width: 420px;
+                        height: 230px;
+                        @media (max-width:768px) {
+                            max-width: 100%;
+                            height: auto;
+                        }
                     }
                     .calendar {
                         position: absolute;

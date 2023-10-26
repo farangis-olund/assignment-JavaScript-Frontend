@@ -18,6 +18,11 @@ html h4, body h4 {
   font-size: 22px;
   font-weight: 700;
 }
+html h5, body h5 {
+  font-family: "Inter", sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+}
 html p, body p {
   color: #b1afaf;
 }
@@ -1087,8 +1092,14 @@ header .container .menu .main-menu .login-btn {
   }
 }
 .article-news .container .boxes .box .img-content img {
-  width: 100%;
-  height: auto;
+  width: 420px;
+  height: 230px;
+}
+@media (max-width: 768px) {
+  .article-news .container .boxes .box .img-content img {
+    max-width: 100%;
+    height: auto;
+  }
 }
 .article-news .container .boxes .box .img-content .calendar {
   position: absolute;
@@ -1458,4 +1469,152 @@ header .container .menu .main-menu .login-btn {
 }
 .contacts .container #btn-submit {
   padding-top: 44px;
+}
+
+.article-detail .container .title {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+}
+.article-detail .container .article-info {
+  display: flex;
+  list-style-type: none;
+  align-items: center;
+  gap: 20px;
+  padding-bottom: 40px;
+  font-family: "DM Sans", sans-serif;
+  font-weight: 500;
+}
+.article-detail .container .article-info li {
+  font-size: 16px;
+}
+@media (min-width: 768px) {
+  .article-detail .container .article-info li {
+    font-size: 20px;
+  }
+}
+.article-detail .container .article-info i {
+  font-size: 7px;
+  color: #F9D783;
+}
+@media (min-width: 768px) {
+  .article-detail .container .article-info i {
+    font-size: 10px;
+  }
+}
+.article-detail .container .content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+@media (min-width: 992px) {
+  .article-detail .container .content {
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+  }
+}
+.article-detail .container .content .article {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+}
+.article-detail .container .content img {
+  width: 758px;
+  height: 500px;
+}
+@media (max-width: 768px) {
+  .article-detail .container .content img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+.article-detail .container .content .side-bar {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.article-detail .container .content .side-bar .search-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.article-detail .container .content .side-bar .search-box i {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+}
+.article-detail .container .content .side-bar .search-box input {
+  width: 100%;
+  padding-left: 30px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  background-color: #F3F3F3;
+  border-radius: 18px;
+  border-color: transparent;
+}
+.article-detail .container .content .side-bar .search-box input:focus {
+  outline: none;
+}
+.article-detail .container .content .side-bar .recent-post {
+  border: 1px solid rgba(25, 25, 25, 0.2);
+  padding: 40px 60px;
+}
+.article-detail .container .content .side-bar .recent-post h4 {
+  font-size: 24px;
+  font-weight: bold;
+}
+.article-detail .container .content .side-bar .recent-post span {
+  text-decoration: underline;
+}
+.article-detail .container .content .side-bar .recent-post .post {
+  border-bottom: 1px solid #e9e8e8;
+  padding-top: 15px;
+}
+.article-detail .container .content .side-bar .recent-post .post .date {
+  font-size: 14px;
+  color: rgba(25, 25, 25, 0.7);
+}
+.article-detail .container .content .side-bar .recent-post .post .description {
+  font-size: 16px;
+  color: #191919;
+  font-weight: bold;
+  margin: 0;
+}
+.article-detail .container .content .side-bar .recent-post .post:last-child {
+  border-bottom: none;
+}
+.article-detail .container .content .side-bar .recent-post .categories .category {
+  display: flex;
+}
+.article-detail .container .content .side-bar .recent-post .categories .category p {
+  padding-left: 15px;
+  font-size: 14px;
+}
+.article-detail .container .content .side-bar .recent-post .categories .category h5 {
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+}
+.article-detail .container .categoryNav {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  text-align: center;
+  padding-top: 40px;
+  font-size: 14px;
+  font-weight: 700;
+}
+@media (min-width: 768px) {
+  .article-detail .container .categoryNav {
+    flex-direction: row;
+    text-align: left;
+  }
+}
+.article-detail .container .categoryNav a {
+  text-decoration: none;
+  color: #191919;
+  background-color: #F3F3F3;
+  padding: 12px 30px;
+  border-radius: 20px;
 }
