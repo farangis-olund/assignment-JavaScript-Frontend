@@ -44,7 +44,10 @@
                 }
                 
                 &:hover {
-                    background-color: #efefef;
+                    background-color: #fefefe;
+                }
+                &:focus {
+                    outline: none;
                 }
             }
         }

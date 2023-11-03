@@ -43,12 +43,16 @@
             text-align: center;
             padding-top: 43px;
             
-            @media (min-width:992px) {
+            @media (min-width:768px) {
                 display: grid;
-                grid-template-columns: 1fr 1fr 1fr;
+                grid-template-columns: 1fr 1fr;
                 align-items: left;
                 text-align: left;
                 gap: 30px;
+            }
+
+            @media (min-width:1400px) {
+                grid-template-columns: 1fr 1fr 1fr;
             }
         
             .box {
@@ -56,6 +60,7 @@
                 text-decoration: none;
                 color: #191919;
                 padding-bottom: 30px;
+                height: 100%;
                 .img-content {
                     position: relative;
                     display: block;
@@ -100,7 +105,7 @@
                         padding-top: 28px;   
                     }   
                 }
-                
+               
                 @extend %hover-effect;
             }
         }

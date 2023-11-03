@@ -1,6 +1,11 @@
 .article-detail {
+    padding-top: 20px;
     
+    @media (min-width:768px) {
+        padding-top: 80px;
+    }
     .container {
+        padding: 0;
         .title {
             display: grid;
             grid-template-columns: 2fr 1fr;    
@@ -40,8 +45,6 @@
                 gap: 80px;
             }
            
-            
-            
             .article {
                 display: flex;
                 flex-direction: column;
@@ -76,8 +79,8 @@
                     input {
                         width: 100%;
                         padding-left: 30px;
-                        padding-top: 8px;
-                        padding-bottom: 8px;
+                        padding-top: 10px;
+                        padding-bottom: 10px;
                         background-color: #F3F3F3;
                         border-radius: 18px;
                         border-color: transparent;
@@ -99,7 +102,7 @@
                         text-decoration: underline;
                     }
                     .post {
-                        border-bottom: 1px solid #e9e8e8;
+                        border-bottom: 1px solid #d8d7d7;
                         padding-top: 15px;
                         .date {
                             font-size: 14px; 
@@ -112,6 +115,7 @@
                             font-weight: bold;
                             margin: 0;
                         }
+                        @extend %hover-effect;
                     }
 
                     .post:last-child {
@@ -119,32 +123,31 @@
                     }
 
                     .categories {
+                        padding-top: 15px;
+                        
                         .category {
                             display: flex;
-                            
+                           
                             p {
                                 padding-left: 15px;
                                 font-size: 14px;
                             }
                             h5 {
                                 font-family: 'Inter', sans-serif;
-                                font-size: 14px;
+                                font-size: 16px;
                                 font-weight: 700;
                             }
+                            @extend %hover-effect;
                         }
                     }
-                    
-
-                    
                 }
             }
-
-
         }
         
         .categoryNav {
             display: flex;
             flex-direction: column;
+            align-items: flex-start;
             gap: 20px;
             text-align: center;
             padding-top: 40px;
@@ -161,6 +164,7 @@
                 background-color: #F3F3F3;
                 padding: 12px 30px;
                 border-radius: 20px;
+                @extend %hover-effect;
             }
         }
     }

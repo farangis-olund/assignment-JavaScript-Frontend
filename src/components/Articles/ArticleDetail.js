@@ -4,21 +4,21 @@ import Post from './Post'
 import { useParams } from 'react-router-dom'
 import Category from './Category'
 
-
 const ArticleDetail = () => {
     const { articleId } = useParams()
     const [article, setArticle] = useState(null)
     useEffect(() => {
         async function fetchArticle() {
             try {
-                const response = await fetch(`https://win23-assignment.azurewebsites.net/api/articles/${articleId}`)
-                if (!response.ok) {
-                throw new Error('Network response was not ok');
+                if (articleId !== undefined){
+                    const response = await fetch(`https://win23-assignment.azurewebsites.net/api/articles/${articleId}`)
+                    if (response.status === 200) {
+                        setArticle(await response.json())
+                    }
                 }
-                const data = await response.json()
-                setArticle(data)
+           
             } catch (error) {
-            console.log("Error")
+            console.log("Error" + error)
             }
         }
 
@@ -39,30 +39,30 @@ const ArticleDetail = () => {
         const formattedDate = `${month} ${day}, ${year}`
         return formattedDate
     }
-    return (
+    return article ? (
     
     <div className="article-detail">
-        <div className="container section-padding">
+        <div className="container ">
             <div className="title">
-                {article ? <SectionTiltle title="" description={article.title} /> : null }
+                {<SectionTiltle title="" description={article.title} />}
             </div>
             <div className="article-info">
-                <li> { article ? formatDate(article.published) : null } </li>
+                <li> {formatDate(article.published)} </li>
                 <i className="fa-solid fa-circle"></i>
-                <li> { article ? article.category : null } </li>
+                <li> { article.category } </li>
                 <i className="fa-solid fa-circle"></i>
-                <li> { article ? article.author: null } </li>
+                <li> {article.author} </li>
             </div>
             
             <div className='content'>
                 <div className='article'>
-                    <img src={article ? article.imageUrl : null } alt=""/>  
-                    <p>{article ? article.content : null}</p> 
+                    <img src={article.imageUrl} alt=""/>  
+                    <p>{article.content}</p> 
                 </div>
                 <div className='side-bar '>
                         <div className='search-box'>
                             <input placeholder='Type to search'></input>
-                            <i class="fa-solid fa-magnifying-glass"></i>
+                            <i className="fa-solid fa-magnifying-glass"></i>
                         </div>
                         <div className='recent-post'>
                             <h4> <span>Rec</span>ent Posts</h4>
@@ -73,7 +73,7 @@ const ArticleDetail = () => {
                         </div>
                         <div className='recent-post'>
                             <h4> <span>Cat</span>egories</h4>
-                            <div className='post categories'>
+                            <div className='categories'>
                                 <Category title="Technology" postCount="20"/>
                                 <Category title="Freelancing" postCount="7"/>
                                 <Category title="Writing" postCount="16"/>
@@ -95,7 +95,7 @@ const ArticleDetail = () => {
             </nav>
         </div>
    </div>
- )
+ ) : null
 }
 
 export default ArticleDetail

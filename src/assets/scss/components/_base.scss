@@ -28,6 +28,11 @@ html, body {
     }
 
     p {color: #b1afaf;}
+
+    a {
+        text-decoration: none;
+        color: #191919;
+    }
 }
 
 .wrapper {
@@ -98,3 +103,4 @@ flex: 1;
         z-index: 1;
     }
 }
+

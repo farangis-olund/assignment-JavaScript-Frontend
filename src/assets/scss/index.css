@@ -26,6 +26,10 @@ html h5, body h5 {
 html p, body p {
   color: #b1afaf;
 }
+html a, body a {
+  text-decoration: none;
+  color: #191919;
+}
 
 .wrapper {
   display: flex;
@@ -78,7 +82,7 @@ main {
   }
 }
 
-.article-news .container .boxes .box:hover, .testimonial .container .boxes .box:hover, .team-section .container .team-members .member:hover, .services .container .services-boxes .box-content:hover {
+.article-detail .container .categoryNav a:hover, .article-detail .container .content .side-bar .recent-post .categories .category:hover, .article-detail .container .content .side-bar .recent-post .post:hover, .article-news .container .boxes .box:hover, .testimonial .container .boxes .box:hover, .team-section .container .team-members .member:hover, .services .container .services-boxes .box-content:hover {
   transform: scale(1.05);
   transition: background-color 0.3s ease, transform 0.3s ease;
 }
@@ -135,6 +139,20 @@ main {
   color: #191919;
 }
 
+.scrollToTopButton {
+  position: fixed;
+  bottom: 50px;
+  right: 30px;
+  height: 60px;
+  width: 40px;
+  background-color: #F9D783;
+  border: none;
+  z-index: 2;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
+  transition: box-shadow 0.5s ease, background-color 0.2s ease-in-out, color 0.2s ease-in-out, transform 0.5s ease;
+  cursor: pointer;
+}
+
 header {
   background-color: #F0EFE9;
   padding: 16px;
@@ -143,7 +161,11 @@ header .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 70px;
+  gap: 50px;
+  padding: 0;
+}
+header .container img {
+  margin-bottom: 30px;
 }
 header .container .menu-bar {
   border: none;
@@ -253,9 +275,10 @@ header .container .menu .main-menu .login-btn {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 0;
 }
 .showcase .container .content {
-  padding: 20px;
+  padding: 0;
   text-align: center;
 }
 @media (min-width: 992px) {
@@ -1066,13 +1089,18 @@ header .container .menu .main-menu .login-btn {
   text-align: center;
   padding-top: 43px;
 }
-@media (min-width: 992px) {
+@media (min-width: 768px) {
   .article-news .container .boxes {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
     align-items: left;
     text-align: left;
     gap: 30px;
+  }
+}
+@media (min-width: 1400px) {
+  .article-news .container .boxes {
+    grid-template-columns: 1fr 1fr 1fr;
   }
 }
 .article-news .container .boxes .box {
@@ -1080,6 +1108,7 @@ header .container .menu .main-menu .login-btn {
   text-decoration: none;
   color: #191919;
   padding-bottom: 30px;
+  height: 100%;
 }
 .article-news .container .boxes .box .img-content {
   position: relative;
@@ -1187,7 +1216,10 @@ header .container .menu .main-menu .login-btn {
   }
 }
 .get-update .container .content-center input:hover {
-  background-color: #efefef;
+  background-color: #fefefe;
+}
+.get-update .container .content-center input:focus {
+  outline: none;
 }
 .get-update .decoration {
   right: 0;
@@ -1321,6 +1353,23 @@ header .container .menu .main-menu .login-btn {
   color: #6e6a6a;
 }
 
+.notFound .container {
+  display: grid;
+}
+.notFound .container h1 {
+  padding-top: 40px;
+}
+.notFound .container img {
+  max-width: 300px;
+  height: auto;
+}
+.notFound .container a {
+  padding-top: 40px;
+}
+.notFound .container a:hover {
+  color: #a1a1a1;
+}
+
 .showcase-contacts {
   padding-bottom: 80px;
   padding-top: 60px;
@@ -1333,6 +1382,7 @@ header .container .menu .main-menu .login-btn {
 }
 .showcase-contacts .container .nav-contact {
   display: flex;
+  padding-bottom: 20px;
 }
 .showcase-contacts .container .nav-contact a {
   padding-right: 10px;
@@ -1471,6 +1521,17 @@ header .container .menu .main-menu .login-btn {
   padding-top: 44px;
 }
 
+.article-detail {
+  padding-top: 20px;
+}
+@media (min-width: 768px) {
+  .article-detail {
+    padding-top: 80px;
+  }
+}
+.article-detail .container {
+  padding: 0;
+}
 .article-detail .container .title {
   display: grid;
   grid-template-columns: 2fr 1fr;
@@ -1547,8 +1608,8 @@ header .container .menu .main-menu .login-btn {
 .article-detail .container .content .side-bar .search-box input {
   width: 100%;
   padding-left: 30px;
-  padding-top: 8px;
-  padding-bottom: 8px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   background-color: #F3F3F3;
   border-radius: 18px;
   border-color: transparent;
@@ -1568,7 +1629,7 @@ header .container .menu .main-menu .login-btn {
   text-decoration: underline;
 }
 .article-detail .container .content .side-bar .recent-post .post {
-  border-bottom: 1px solid #e9e8e8;
+  border-bottom: 1px solid #d8d7d7;
   padding-top: 15px;
 }
 .article-detail .container .content .side-bar .recent-post .post .date {
@@ -1584,6 +1645,9 @@ header .container .menu .main-menu .login-btn {
 .article-detail .container .content .side-bar .recent-post .post:last-child {
   border-bottom: none;
 }
+.article-detail .container .content .side-bar .recent-post .categories {
+  padding-top: 15px;
+}
 .article-detail .container .content .side-bar .recent-post .categories .category {
   display: flex;
 }
@@ -1593,12 +1657,13 @@ header .container .menu .main-menu .login-btn {
 }
 .article-detail .container .content .side-bar .recent-post .categories .category h5 {
   font-family: "Inter", sans-serif;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 700;
 }
 .article-detail .container .categoryNav {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   gap: 20px;
   text-align: center;
   padding-top: 40px;

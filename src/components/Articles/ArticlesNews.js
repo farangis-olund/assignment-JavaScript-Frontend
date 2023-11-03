@@ -5,33 +5,33 @@ import ArticleBox from './ArticleBox'
 
 const ArticlesNews = ({sectionDescription, articleAmount}) => {
     
+    const [articles, setArticles] = useState([])
+    
     async function fetchArticles() {
         try {
           const response = await fetch('https://win23-assignment.azurewebsites.net/api/articles'); 
           if (!response.ok) {
-            throw new Error('Network response was not ok');
+            throw new Error('Network response was not ok')
           }
-          const data = await response.json();
-          return data;
+          return response.json()
+       
         } catch (error) {
-          console.error('Error fetching articles:', error);
-          throw error;
+            console.error('Error fetching articles:', error)
+          throw error
         }
     }
-    const [articles, setArticles] = useState([]);
-
+    
     useEffect(() => {
         async function fetchArticlesData() {
         try {
-            const data = await fetchArticles();
-            setArticles(data);
+            setArticles( await fetchArticles())
+            
         } catch (error) {
-            // Handle errors here
+           console.log(error)
         }
         }
-
-        fetchArticlesData();
-    }, []);
+        fetchArticlesData()
+    }, [])
 
     const displayedArticles = articles.slice(0, articleAmount)
 
@@ -55,7 +55,7 @@ return (
                 
                 <div className="content-center">
                 {articleAmount === 3 ? (
-                    <Button url="/services" title="Browse Article" />
+                    <Button url="/news" title="Browse Article" />
                 ) : null}
                 
                 </div>

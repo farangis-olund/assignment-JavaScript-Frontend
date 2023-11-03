@@ -1,0 +1,20 @@
+.notFound {
+    .container {
+        display: grid;
+        h1 {
+            padding-top: 40px;
+        }
+    
+        img {
+            max-width: 300px; 
+            height: auto;
+        }
+    
+        a {
+            padding-top: 40px;
+            &:hover {
+                color: #a1a1a1;
+            }
+        }
+    }
+}

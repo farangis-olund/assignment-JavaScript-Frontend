@@ -1,17 +1,18 @@
 import React from 'react'
-import Footer from '../components/Footer'
-import BottomFooter from '../components/BottomFooter'
-
+import ErrorImg from '../assets/images/404Page.jpg'
+import { Link } from 'react-router-dom'
 const NotFound = () => {
+ 
   return (
-    <div className='wrapper'>
-      <main className='container'>
+  <div className='notFound'>
+    <main className='container'>
+        <Link to="/" >Go Home</Link>
         <h1> 404 Page Not Found </h1>
-      </main>
-            
-      <Footer/>
-      <BottomFooter/>
-    </div>
+        <img src = {ErrorImg} alt='Error img'/>
+    </main>
+  </div>
+  
+ 
   )
 }
 

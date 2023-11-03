@@ -6,8 +6,11 @@ header {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        gap: 70px;
-        
+        gap: 50px;
+        padding: 0;
+        img {
+            margin-bottom: 30px;
+        }
         .menu-bar {
              border: none;
              font-size: 25px;

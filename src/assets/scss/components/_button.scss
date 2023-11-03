@@ -50,3 +50,22 @@
     border-color: #F9D783;
     color: #191919;
 }
+
+.scrollToTopButton {
+    position: fixed;
+    bottom: 50px;
+    right: 30px;
+    height: 60px;
+    width: 40px;
+    background-color: #F9D783;
+    border: none;
+    z-index: 2;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
+    
+    transition: box-shadow 0.5s ease,
+                background-color 0.2s ease-in-out, color 0.2s ease-in-out, 
+                transform 0.5s ease;
+                
+    cursor: pointer;
+ 
+}

@@ -16,12 +16,12 @@ const WhyChooseSection = () => {
     <div className="why-choose-us">
        <div className="container section-padding">
             <div className="content">
-                <SectionTiltle title="Why choose u" description="Why We Are The Best Business Consulting Agency" />
+                <SectionTiltle title="Why choose us" description="Why We Are The Best Business Consulting Agency" />
                 
                 <div className="boxes">
                     {
                        boxContent.map((box, index)=>(
-                        <WhyChooseBoxs key={index} fafaclassName={box.fafaClass} title={box.title} description={box.description}/>
+                        <WhyChooseBoxs key={index} fafaClass={box.fafaClass} title={box.title} description={box.description}/>
                     ))}
             </div>
             </div>
