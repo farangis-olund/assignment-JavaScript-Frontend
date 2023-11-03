@@ -15,7 +15,7 @@ const Partners = () => {
     {imgSrc: gobona, imgAlt: "gobona"}
   ]
     return (
-    <div>
+    <div className='partners'>
         <div className="container section-padding">
             {
                 partners.map((partner, index)=>(

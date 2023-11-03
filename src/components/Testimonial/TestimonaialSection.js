@@ -1,10 +1,10 @@
 import React from 'react'
-import SectionTiltle from '../generics/SectionTiltle'
+import SectionTiltle from '../Generics/SectionTiltle'
 import cassandra from '../../assets/images/cassandra-warren.png'
 import amanda from '../../assets/images/amanda-tulling.png'
 import jack from '../../assets/images/jack-mcDogglas.png'
 import Testimonial from './Testimonial'
-import Button from '../generics/Button'
+import Button from '../Generics/Button'
 
 const TestimonaialSection = () => {
   const testimonials =[

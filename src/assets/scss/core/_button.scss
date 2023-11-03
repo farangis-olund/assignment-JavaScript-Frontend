@@ -58,6 +58,7 @@
     height: 60px;
     width: 40px;
     background-color: #F9D783;
+    border-radius: 4px;
     border: none;
     z-index: 2;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
@@ -68,4 +69,16 @@
                 
     cursor: pointer;
  
+}
+
+.menu-button {
+    border: none;
+    font-size: 25px;
+    background-color: transparent;
+    padding: 10px;
+    z-index: 5;
+    @media (min-width:992px) {
+        display: none;
+    }
+    @extend %hover-effect; 
 }

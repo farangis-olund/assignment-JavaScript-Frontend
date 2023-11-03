@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import SectionTiltle from '../generics/SectionTiltle'
+import SectionTiltle from '../Generics/SectionTiltle'
 import Post from './Post'
 import { useParams } from 'react-router-dom'
 import Category from './Category'

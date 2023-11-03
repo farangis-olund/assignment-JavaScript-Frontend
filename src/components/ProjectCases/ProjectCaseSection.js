@@ -1,11 +1,11 @@
 import React from 'react'
-import SectionTiltle from '../generics/SectionTiltle'
+import SectionTiltle from '../Generics/SectionTiltle'
 import case1 from '../../assets/images/case1.png'
 import case2 from '../../assets/images/case2.png'
 import case3 from '../../assets/images/case3.png'
 import case4 from '../../assets/images/case4.png'
 import ProjectCaseBoxs from './ProjectCaseBoxs'
-import Button from '../generics/Button'
+import Button from '../Generics/Button'
 
 const ProjectCaseSection = () => {
   const cases = [

@@ -1,7 +1,7 @@
 import React from 'react'
 import ServiceBox from './ServiceBox'
-import SectionTiltle from '../generics/SectionTiltle'
-import Button from '../generics/Button'
+import SectionTiltle from '../Generics/SectionTiltle'
+import Button from '../Generics/Button'
 import imgDecorationLinesRight from '../../assets/images/background-lines-right.svg'
 const OurServices = () => {
   

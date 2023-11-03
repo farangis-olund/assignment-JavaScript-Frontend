@@ -1,7 +1,7 @@
 import React from 'react'
 import aboutImg from '../assets/images/about.png'
-import SectionTiltle from './generics/SectionTiltle'
-import Button from './generics/Button'
+import SectionTiltle from './Generics/SectionTiltle'
+import Button from './Generics/Button'
 
 const About = () => {
   return (

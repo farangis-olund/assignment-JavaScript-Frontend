@@ -1,6 +1,6 @@
 import React from 'react'
 import img from '../../assets/images/why-choose-us.jpg'
-import SectionTiltle from '../generics/SectionTiltle'
+import SectionTiltle from '../Generics/SectionTiltle'
 import WhyChooseBoxs from './WhyChooseBoxs'
 
 const WhyChooseSection = () => {

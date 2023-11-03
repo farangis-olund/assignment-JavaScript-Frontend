@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import SectionTiltle from '../generics/SectionTiltle'
-import Button from '../generics/Button'
+import SectionTiltle from '../Generics/SectionTiltle'
+import Button from '../Generics/Button'
 import ArticleBox from './ArticleBox'
 
 const ArticlesNews = ({sectionDescription, articleAmount}) => {

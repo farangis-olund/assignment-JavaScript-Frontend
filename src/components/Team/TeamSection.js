@@ -4,8 +4,8 @@ import mark from '../../assets/images/mark-aubri.png'
 import kimberly from '../../assets/images/kimberly-hansen.png'
 import justin from '../../assets/images/justin-willoman.png'
 import TeamMember from './TeamMember'
-import SectionTiltle from '../generics/SectionTiltle'
-import Button from '../generics/Button'
+import SectionTiltle from '../Generics/SectionTiltle'
+import Button from '../Generics/Button'
 
 
 const TeamSection = () => {

@@ -1,5 +1,8 @@
-@import "./components/_base.scss";
-@import "./components/_button.scss";
+// core
+@import "./core/base";
+@import "./core/button";
+
+// components
 @import "./components/_header.scss";
 @import "./components/_showCase.scss";
 @import "./components/_partners.scss";
@@ -11,8 +14,9 @@
 @import "./components/_team.scss";
 @import "./components/_testimonial.scss";
 @import "./components/_articleNews.scss";
+@import "./components/_articleDetail.scss";
 @import "./components/_getUpdate.scss";
 @import "./components/_footer.scss";
-@import "./components/_notFound.scss";
 @import "./components/_contacts.scss";
-@import "./components/_articleDetail.scss";
+// notFound page
+@import "./components/_notFound.scss";

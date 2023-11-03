@@ -8,19 +8,8 @@ header {
         align-items: center;
         gap: 50px;
         padding: 0;
-        img {
-            margin-bottom: 30px;
-        }
-        .menu-bar {
-             border: none;
-             font-size: 25px;
-             background-color: transparent;
-             padding: 10px;
-             
-             @media (min-width:992px) {
-                 display: none;
-             }    
-         }
+        
+       
  
         .menu {
              display: none;

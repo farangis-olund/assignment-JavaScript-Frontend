@@ -1,6 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
-import SocialMedia from './generics/SocialMedia'
+import SocialMedia from './Generics/SocialMedia'
 
 const BottomFooter = () => {
   return (

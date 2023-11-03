@@ -104,3 +104,34 @@ flex: 1;
     }
 }
 
+.hide {
+    display: none;
+}
+
+.barMenu {
+    background-color: #F0EFE9;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    padding: 70px 0;
+    z-index: 3;
+
+    a {
+        display: block;
+        text-align: center;
+        padding: 20px;
+        font-size: 20px;
+        border-bottom: 1px solid #deddd8 ;
+        &:hover {
+            background-color: #deddd8;
+        }
+    }
+       
+    .active {
+        background-color: #deddd8;
+    }
+  
+}
+

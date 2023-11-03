@@ -11,8 +11,8 @@ import NotFound from './views/NotFound';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import BottomFooter from './components/BottomFooter'
-import AutoScrollToTop from './components/AutoScrollToTop';
-import ScrollToTop from './components/ScrollToTop';
+import AutoScrollToTop from './components/Generics/AutoScrollToTop';
+import ScrollToTop from './components/Generics/ScrollToTop';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
