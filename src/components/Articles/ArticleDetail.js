@@ -1,29 +1,19 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import SectionTiltle from '../Generics/SectionTiltle'
 import Post from './Post'
 import { useParams } from 'react-router-dom'
 import Category from './Category'
+import { useArticles } from '../../contexts/ArticleContext'
 
 const ArticleDetail = () => {
-    const { articleId } = useParams()
-    const [article, setArticle] = useState(null)
+    const {article, getArticle, clearArticle} = useArticles()
+    
+    const { id } = useParams()
     useEffect(() => {
-        async function fetchArticle() {
-            try {
-                if (articleId !== undefined){
-                    const response = await fetch(`https://win23-assignment.azurewebsites.net/api/articles/${articleId}`)
-                    if (response.status === 200) {
-                        setArticle(await response.json())
-                    }
-                }
-           
-            } catch (error) {
-            console.log("Error" + error)
-            }
-        }
-
-    fetchArticle()
-  }, [articleId])
+    getArticle(id)
+      
+    return () => clearArticle()
+  }, [])
   
     function formatDate(inputDate) {
         const date = new Date(inputDate);

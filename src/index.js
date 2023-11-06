@@ -13,24 +13,27 @@ import Footer from './components/Footer';
 import BottomFooter from './components/BottomFooter'
 import AutoScrollToTop from './components/Generics/AutoScrollToTop';
 import ScrollToTop from './components/Generics/ScrollToTop';
+import { ArticleProvider } from './contexts/ArticleContext';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <AutoScrollToTop />
-      <ScrollToTop/>
-      <div className="wrapper">
-        <HeaderWithCondition />  
-        <Routes>
-          <Route path='/' element={<Home/>} />  
-          <Route path='/contacts' element={<Contacts/>} />  
-          <Route path='/news' element={<News/>} />  
-          <Route path='/newsdetails/:articleId' element={<NewsDetails/>} />  
-          <Route path='*' element={<NotFound/>} />  
-        </Routes>
-        <Footer/>
-        <BottomFooter/>
-      </div>
+      <ArticleProvider>
+        <AutoScrollToTop />
+          <ScrollToTop/>
+          <div className="wrapper">
+            <HeaderWithCondition />  
+            <Routes>
+              <Route path='/' element={<Home/>} />  
+              <Route path='/contacts' element={<Contacts/>} />  
+              <Route path='/news' element={<News/>} />  
+              <Route path='/newsdetails/:id' element={<NewsDetails/>} />  
+              <Route path='*' element={<NotFound/>} />  
+            </Routes>
+            <Footer/>
+            <BottomFooter/>
+          </div>
+      </ArticleProvider>
     </BrowserRouter>
   </React.StrictMode>
 );

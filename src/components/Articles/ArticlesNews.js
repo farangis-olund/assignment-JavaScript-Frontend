@@ -1,38 +1,11 @@
-import React, { useState, useEffect } from 'react'
+// import React, { useState, useEffect } from 'react'
 import SectionTiltle from '../Generics/SectionTiltle'
 import Button from '../Generics/Button'
 import ArticleBox from './ArticleBox'
-
+import { useArticles } from '../../contexts/ArticleContext'
 const ArticlesNews = ({sectionDescription, articleAmount}) => {
     
-    const [articles, setArticles] = useState([])
-    
-    async function fetchArticles() {
-        try {
-          const response = await fetch('https://win23-assignment.azurewebsites.net/api/articles'); 
-          if (!response.ok) {
-            throw new Error('Network response was not ok')
-          }
-          return response.json()
-       
-        } catch (error) {
-            console.error('Error fetching articles:', error)
-          throw error
-        }
-    }
-    
-    useEffect(() => {
-        async function fetchArticlesData() {
-        try {
-            setArticles( await fetchArticles())
-            
-        } catch (error) {
-           console.log(error)
-        }
-        }
-        fetchArticlesData()
-    }, [])
-
+    const { articles } = useArticles()
     const displayedArticles = articles.slice(0, articleAmount)
 
     function formatDate(publishedDate) {
@@ -62,9 +35,8 @@ return (
             </div>
             
             <div className="boxes">
-                {   displayedArticles.map((article, index) => (
-                    <ArticleBox key={index} 
-                        articleId={article.id} 
+                {   displayedArticles.map(article => (
+                    <ArticleBox id={article.id} 
                         imgSrc={article.imageUrl} 
                         imgAlt={article.author} 
                         date={formatDate(article.published).day} 

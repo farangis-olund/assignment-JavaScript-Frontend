@@ -1,9 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-const ArticleBox = ({articleId, imgSrc, imgAlt, date, month, title, description, category}) => {
-  // console.log(key)
+const ArticleBox = ({id, imgSrc, imgAlt, date, month, title, description, category}) => {
+ 
   return (
-    <Link to={`/newsdetails/${articleId}`} className="box" >
+    <Link to={`/newsdetails/${id}`} className="box" >
         <div className="img-content">
             <img src={imgSrc} alt={imgAlt}/>
             <div className="calendar"><span>{date}</span> {month}</div>
