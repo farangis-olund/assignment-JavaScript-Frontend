@@ -1,132 +1,108 @@
 import React, { useState } from 'react'
+import { useFormik } from 'formik'
+import * as Yup from 'yup'
 
 const ContactForm = () => {
-  const [formData, setFormData] = useState({
-    Name: '',
-    Email: '',
-    Message: '',
-  });
-  const [errors, setErrors] = useState({})
+  
+  const form = useFormik({
+
+    initialValues: {
+      Name: '',
+      Email: '',
+      Message: ''
+    },
+
+    validationSchema: Yup.object({
+      
+      Name: Yup.string()
+        .required('Name is required')
+        .min(2, 'Name should contain at least two symbols')
+        .matches(/^[a-zA-Z\s]*$/, 'Invalid Name'),
+      
+      Email: Yup.string()
+        .required('Email is required')
+        .matches(/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/, 'Invalid email address'),
+      
+      Message: Yup.string()
+        .required('Message is required')
+        .min(2, 'Message should contain at least two symbols')
+      }),
+
+    onSubmit: (values) => {
+      handleSubmit(values)
+    }
+  
+  })
+  
   const [submissionStatus, setSubmissionStatus] = useState('')
+ 
+    // Form submission function
+    const handleSubmit = async (values) => {
+   
+    try {
+      const response = await fetch("https://win23-assignment.azurewebsites.net/api/contactform", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(values) })
 
-  const handleInputChange = (e) => {
-    const { name, value } = e.target
-    const newErrors = { ...errors }
-
-    if (name === 'Name') {
-      if (!value.trim()) {
-        newErrors.Name = 'Name is required'
-      } else if (value.length < 2) {
-        newErrors.Name = 'Name should be at least 2 letters'
-      } else if (!/^[a-zA-Z\s]*$/.test(value)) {
-        newErrors.Name = 'Invalid Name (should not contain numbers or special characters)'
+      if (response.status === 200) {
+        setSubmissionStatus('Success! Your message has been sent.');
       } else {
-        delete newErrors.Name
+        throw new Error("Request failed with status: " + response.status)
       }
-    } else if (name === 'Email') {
-      if (!value.trim() || !validateEmail(value)) {
-        newErrors.Email = 'Invalid email address'
-      } else {
-        delete newErrors.Email
-      }
-    } else if (name === 'Message') {
-      if (!value.trim()) {
-        newErrors.Message = 'Message is required'
-      } else {
-        delete newErrors.Message
-      }
-    }
-
-    setFormData({ ...formData, [name]: value });
-    setErrors(newErrors)
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault()
-
-    // Form submission validation
-    const newErrors = {}
-    if (!formData.Name.trim()) {
-      newErrors.Name = 'Name is required'
-    } else if (!/^[a-zA-Z\s]*$/.test(formData.Name)) {
-      newErrors.Name = 'Invalid Name'
-    }
-    if (!formData.Email.trim() || !validateEmail(formData.Email)) {
-      newErrors.Email = 'Invalid email address'
-    }
-    if (!formData.Message.trim()) {
-      newErrors.Message = 'Message is required'
-    }
-
-    setErrors(newErrors)
-
-    if (Object.keys(newErrors).length === 0) {
-      try {
-        const response = await fetch("https://win23-assignment.azurewebsites.net/api/contactform", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(formData),
-        })
-
-        if (response.status === 200) {
-          setSubmissionStatus('Success! Your message has been sent.')
-        } else {
-          throw new Error("Request failed with status: " + response.status)
-        }
-      } catch (error) {
-        console.error(error)
-        setSubmissionStatus('An error occurred while sending the message.')
-      }
+    } catch (error) {
+      console.error(error)
+      setSubmissionStatus('An error occurred while sending the message.')
     }
   }
-
-  const validateEmail = (email) => {
-    const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/
-    return emailPattern.test(email);
-  }
-
+ 
   return (
     <div className="contacts">
       <div className="container section-padding">
         <h2>Leave us a message<br></br>for any information.</h2>
-        <form onSubmit={handleSubmit} className="contact-form" noValidate>
-        <div id="alert" className={submissionStatus === 'Success! Your message has been sent.' ? 'alert-success' : submissionStatus ? 'alert-warning' : ''}>
-            {submissionStatus}
+        <form onSubmit={form.handleSubmit} className="contact-form" noValidate>
+        <div id="alert" 
+          className={submissionStatus === 'Success! Your message has been sent.' ? 'alert-success' : 
+          submissionStatus ? 'alert-warning' : ''}>
+          {submissionStatus}
         </div>
 
           <div className="form-group">
             <input
               type="text"
               name="Name"
-              value={formData.Name}
-              onChange={handleInputChange}
-              className={errors.Name ? 'error-input' : ''}
+              value={form.values.Name}
+              onChange={form.handleChange}
+              onBlur={form.handleBlur}
+              className={(form.touched.Name && form.errors.Name) ? 'error-input' : ''}
               placeholder="Name*"
             />
-            <span className="error">{errors.Name}</span>
+            <span className="error">{(form.touched.Name && form.errors.Name)}</span>
           </div>
           <div className="form-group">
             <input
               type="email"
               name="Email"
-              value={formData.Email}
-              onChange={handleInputChange}
-              className={errors.Email ? 'error-input' : ''}
+              value={form.values.Email}
+              onChange={form.handleChange}
+              onBlur={form.handleBlur}
+              className={form.touched.Email && form.errors.Email  ? 'error-input' : ''}
               placeholder="Email*"
             />
-            <span className="error">{errors.Email}</span>
+            <span className="error">{form.touched.Email && form.errors.Email}</span>
           </div>
           <div className="form-group">
             <textarea
               name="Message"
-              value={formData.Message}
-              onChange={handleInputChange}
-              className={errors.Message ? 'error-input' : ''}
+              value={form.values.Message}
+              onChange={form.handleChange}
+              onBlur={form.handleBlur}
+              className={form.touched.Message && form.errors.Message ? 'error-input' : ''}
               cols="30"
               rows="5"
               placeholder="Message*"
             ></textarea>
-            <span className="error">{errors.Message}</span>
+            <span className="error">{form.touched.Message && form.errors.Message}</span>
           </div>
           <div id="btn-submit" className="form-group">
             <button className="btn-yellow btn" type="submit">
@@ -139,4 +115,4 @@ const ContactForm = () => {
   );
 };
 
-export default ContactForm;
+export default ContactForm

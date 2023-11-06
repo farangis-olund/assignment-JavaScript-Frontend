@@ -1728,10 +1728,17 @@ header .container .menu .main-menu .login-btn {
 }
 
 .notFound .container {
-  display: grid;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+@media (min-width: 768px) {
+  .notFound .container {
+    align-items: flex-start;
+  }
 }
 .notFound .container h1 {
-  padding-top: 40px;
+  padding-top: 30px;
 }
 .notFound .container img {
   max-width: 300px;
@@ -1739,6 +1746,7 @@ header .container .menu .main-menu .login-btn {
 }
 .notFound .container a {
   padding-top: 40px;
+  color: #191919;
 }
 .notFound .container a:hover {
   color: #a1a1a1;

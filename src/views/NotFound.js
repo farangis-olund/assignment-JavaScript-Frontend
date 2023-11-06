@@ -8,7 +8,7 @@ const NotFound = () => {
     <main className='container'>
         <Link to="/" >Go Home</Link>
         <h1> 404 Page Not Found </h1>
-        <img src = {ErrorImg} alt='Error img'/>
+        <img src = {ErrorImg} alt='Error'/>
     </main>
   </div>
   
