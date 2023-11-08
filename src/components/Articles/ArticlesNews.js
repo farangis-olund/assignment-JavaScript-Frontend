@@ -1,8 +1,9 @@
-// import React, { useState, useEffect } from 'react'
+import React from 'react'
 import SectionTiltle from '../Generics/SectionTiltle'
 import Button from '../Generics/Button'
 import ArticleBox from './ArticleBox'
 import { useArticles } from '../../contexts/ArticleContext'
+
 const ArticlesNews = ({sectionDescription, articleAmount}) => {
     
     const { articles } = useArticles()
@@ -36,7 +37,7 @@ return (
             
             <div className="boxes">
                 {   displayedArticles.map(article => (
-                    <ArticleBox id={article.id} 
+                    <ArticleBox key={article.id} id={article.id} 
                         imgSrc={article.imageUrl} 
                         imgAlt={article.author} 
                         date={formatDate(article.published).day} 

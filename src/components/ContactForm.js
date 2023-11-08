@@ -3,7 +3,8 @@ import { useFormik } from 'formik'
 import * as Yup from 'yup'
 
 const ContactForm = () => {
-  
+  const [submissionStatus, setSubmissionStatus] = useState('')
+
   const form = useFormik({
 
     initialValues: {
@@ -28,44 +29,38 @@ const ContactForm = () => {
         .min(2, 'Message should contain at least two symbols')
       }),
 
-    onSubmit: (values) => {
-      handleSubmit(values)
+    onSubmit: async (values, { resetForm }) => {
+      
+      try {
+        const response = await fetch("https://win23-assignment.azurewebsites.net/api/contactform", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(values) })
+  
+        if (response.status === 200) {
+          setSubmissionStatus('Success! Your message has been sent.');
+          resetForm();
+        } else {
+          throw new Error("Request failed with status: " + response.status)
+        }
+      } catch (error) {
+        console.error(error)
+        setSubmissionStatus('An error occurred while sending the message.')
+      }
     }
   
   })
-  
-  const [submissionStatus, setSubmissionStatus] = useState('')
- 
-    // Form submission function
-    const handleSubmit = async (values) => {
-   
-    try {
-      const response = await fetch("https://win23-assignment.azurewebsites.net/api/contactform", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(values) })
-
-      if (response.status === 200) {
-        setSubmissionStatus('Success! Your message has been sent.');
-      } else {
-        throw new Error("Request failed with status: " + response.status)
-      }
-    } catch (error) {
-      console.error(error)
-      setSubmissionStatus('An error occurred while sending the message.')
-    }
-  }
  
   return (
     <div className="contacts">
       <div className="container section-padding">
         <h2>Leave us a message<br></br>for any information.</h2>
         <form onSubmit={form.handleSubmit} className="contact-form" noValidate>
-        <div id="alert" 
-          className={submissionStatus === 'Success! Your message has been sent.' ? 'alert-success' : 
-          submissionStatus ? 'alert-warning' : ''}>
-          {submissionStatus}
-        </div>
+          <div id="alert" 
+            className={submissionStatus === 'Success! Your message has been sent.' ? 'alert-success' : 
+            submissionStatus ? 'alert-warning' : ''}>
+            {submissionStatus}
+          </div>
 
           <div className="form-group">
             <input
@@ -79,6 +74,7 @@ const ContactForm = () => {
             />
             <span className="error">{(form.touched.Name && form.errors.Name)}</span>
           </div>
+          
           <div className="form-group">
             <input
               type="email"
@@ -91,6 +87,7 @@ const ContactForm = () => {
             />
             <span className="error">{form.touched.Email && form.errors.Email}</span>
           </div>
+          
           <div className="form-group">
             <textarea
               name="Message"
@@ -104,6 +101,7 @@ const ContactForm = () => {
             ></textarea>
             <span className="error">{form.touched.Message && form.errors.Message}</span>
           </div>
+          
           <div id="btn-submit" className="form-group">
             <button className="btn-yellow btn" type="submit">
               Send Message

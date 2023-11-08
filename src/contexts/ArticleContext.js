@@ -15,7 +15,6 @@ export const ArticleProvider = ({children}) => {
     const getArticles = async () => {
         const result = await fetch (apiUrl)
         setArticles (await result.json())
-        
     }
 
     const getArticle = async (id) => {

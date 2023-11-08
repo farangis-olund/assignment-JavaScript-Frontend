@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
-import imgLogotype from '../assets/images/logotype.svg'
 import { Link } from 'react-router-dom'
 import SocialMedia from './Generics/SocialMedia'
 import Menu from './Generics/Menu'
+import imgLogotype from '../assets/images/logotype.svg'
 
 const Header = () => {
   const [menuOpen, setMenuOpen]= useState(false)

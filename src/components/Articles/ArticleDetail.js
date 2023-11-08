@@ -13,7 +13,7 @@ const ArticleDetail = () => {
     getArticle(id)
       
     return () => clearArticle()
-  }, [])
+  }, [id])
   
     function formatDate(inputDate) {
         const date = new Date(inputDate);
