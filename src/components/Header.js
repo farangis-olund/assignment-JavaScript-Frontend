@@ -16,7 +16,7 @@ const Header = () => {
         <div className="container">
             <Link to="/"><img src={imgLogotype} alt="logo"/> </Link> 
             <button onClick={()=>setMenuOpen(!menuOpen)} className="menu-button">
-               {menuOpen ? (<i class="fa-sharp fa-solid fa-xmark"></i>) : (<i className="fa-regular fa-bars"></i>)} 
+               {menuOpen ? (<i className="fa-sharp fa-solid fa-xmark"></i>) : (<i className="fa-regular fa-bars"></i>)} 
             </button>
             
             <div className="menu">

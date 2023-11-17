@@ -7,19 +7,29 @@ export const ArticleProvider = ({children}) => {
     const apiUrl= 'https://win23-assignment.azurewebsites.net/api/articles'
     const [articles, setArticles] = useState([])
     const [article, setArticle]= useState(null)
-
+    const [error, setError] = useState(null)
     useEffect (()=>{
         getArticles()
     }, [])
 
     const getArticles = async () => {
-        const result = await fetch (apiUrl)
-        setArticles (await result.json())
+        try {
+            const result = await fetch (apiUrl)
+            setArticles (await result.json())
+        } catch (error) {
+            console.error("Error fetching articles:", error)
+            setError(error.message) 
+        }
     }
 
     const getArticle = async (id) => {
-        const result = await fetch ( `${apiUrl}/${id}` )
-        setArticle (await result.json())
+        try {
+            const result = await fetch ( `${apiUrl}/${id}` )
+            setArticle (await result.json())
+        } catch (error) {
+            console.error("Error fetching articles:", error)
+            setError(error.message) 
+        }
     }
 
     const clearArticle = () => {
@@ -27,7 +37,7 @@ export const ArticleProvider = ({children}) => {
     }
 
     return (
-        <ArticleContext.Provider value={{articles, article, getArticles, getArticle, clearArticle}}>
+        <ArticleContext.Provider value={{articles, article, getArticles, getArticle, clearArticle, error}}>
             {children}
         </ArticleContext.Provider>
     )

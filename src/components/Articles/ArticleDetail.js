@@ -6,7 +6,7 @@ import Category from './Category'
 import { useArticles } from '../../contexts/ArticleContext'
 
 const ArticleDetail = () => {
-    const {article, getArticle, clearArticle} = useArticles()
+    const {article, getArticle, clearArticle, error} = useArticles()
     
     const { id } = useParams()
     useEffect(() => {
@@ -16,7 +16,7 @@ const ArticleDetail = () => {
   }, [id])
   
     function formatDate(inputDate) {
-        const date = new Date(inputDate);
+        const date = new Date(inputDate)
     
         const monthNames = [
         'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
@@ -49,7 +49,7 @@ const ArticleDetail = () => {
                     <img src={article.imageUrl} alt=""/>  
                     <p>{article.content}</p> 
                 </div>
-                <div className='side-bar '>
+                <div className='side-bar'>
                         <div className='search-box'>
                             <input placeholder='Type to search'></input>
                             <i className="fa-solid fa-magnifying-glass"></i>
@@ -85,7 +85,15 @@ const ArticleDetail = () => {
             </nav>
         </div>
    </div>
- ) : null
+ ) : error ? (
+    <div className="article-detail">
+        <div className="container">
+            <p>Error: {error}</p>
+            <p>Connection to server is failed. 
+                Please check your internet connection and try again.</p>
+        </div>
+    </div>
+) : null;
 }
 
 export default ArticleDetail

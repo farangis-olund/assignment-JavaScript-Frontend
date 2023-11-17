@@ -6,7 +6,7 @@ import { useArticles } from '../../contexts/ArticleContext'
 
 const ArticlesNews = ({sectionDescription, articleAmount}) => {
     
-    const { articles } = useArticles()
+    const { articles, error } = useArticles()
     const displayedArticles = articles.slice(0, articleAmount)
 
     function formatDate(publishedDate) {
@@ -35,21 +35,35 @@ return (
                 </div>
             </div>
             
-            <div className="boxes">
-                {   displayedArticles.map(article => (
-                    <ArticleBox key={article.id} id={article.id} 
-                        imgSrc={article.imageUrl} 
-                        imgAlt={article.author} 
-                        date={formatDate(article.published).day} 
-                        month={formatDate(article.published).month} 
-                        title={article.title} 
-                        description={article.content}
-                        category={article.category}/>
-                   ))} 
-            </div>
+            {error ? (
+                <div>
+                    <p>Error: {error}</p>
+                    <p>Connection to server is failed. Please check your internet connection and try again.</p>
+                </div>
+            ) : (
+                <div className="boxes">
+                    {articles && articles.length > 0 ? (
+                        displayedArticles.map(article => (
+                            <ArticleBox 
+                                key={article.id} 
+                                id={article.id} 
+                                imgSrc={article.imageUrl} 
+                                imgAlt={article.author} 
+                                date={formatDate(article.published).day} 
+                                month={formatDate(article.published).month} 
+                                title={article.title} 
+                                description={article.content}
+                                category={article.category}
+                            />
+                        ))
+                    ) : (
+                        <p>No articles available.</p>
+                    )}
+                </div>
+            )}
         </div>
    </div>
-  )
+  ) 
 }
 
 export default ArticlesNews

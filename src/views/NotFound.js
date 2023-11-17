@@ -10,8 +10,6 @@ const NotFound = () => {
         <img src = {ErrorImg} alt='Error'/>
     </main>
   </div>
-  
- 
   )
 }
 

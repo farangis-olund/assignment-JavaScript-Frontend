@@ -43,6 +43,7 @@ const ContactForm = () => {
         } else {
           throw new Error("Request failed with status: " + response.status)
         }
+        
       } catch (error) {
         console.error(error)
         setSubmissionStatus('An error occurred while sending the message.')
