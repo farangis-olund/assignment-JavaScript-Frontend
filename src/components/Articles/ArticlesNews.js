@@ -43,7 +43,9 @@ return (
             ) : (
                 <div className="boxes">
                     {articles && articles.length > 0 ? (
-                        displayedArticles.map(article => (
+                    displayedArticles.map(article => {
+                            const limitedContent = article.content.substring(0, 80) + '...'
+                        return (
                             <ArticleBox 
                                 key={article.id} 
                                 id={article.id} 
@@ -52,13 +54,14 @@ return (
                                 date={formatDate(article.published).day} 
                                 month={formatDate(article.published).month} 
                                 title={article.title} 
-                                description={article.content}
+                                description={limitedContent} 
                                 category={article.category}
                             />
-                        ))
-                    ) : (
-                        <p>No articles available.</p>
-                    )}
+                        );
+                    })
+                ) : (
+                    <p>No articles available.</p>
+                )}
                 </div>
             )}
         </div>
